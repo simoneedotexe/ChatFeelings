@@ -555,6 +555,83 @@ public class FileSetup {
 	setEmotes("Feelings.Stalk.Sounds.Sound2.Name", "None");
 	setEmotesDouble("Feelings.Stalk.Sounds.Sound2.Volume", 0.0);
 	setEmotesDouble("Feelings.Stalk.Sounds.Sound2.Pitch", 0.0);
+	
+	setEmotesBoolean("Feelings.Wave.Enable", true);
+	setEmotes("Feelings.Wave.Msgs.Sender", "&7You carefully stalk &e&l%player%&r&7, &7&oHeh Heh.");
+	setEmotes("Feelings.Wave.Msgs.Target", "&e&l%player% &r&7stalks you from a nearby tree.");
+	setEmotes("Feelings.Wave.Msgs.Global", "&e&l%sender% &r&7stalks &6&l%target% &r&7from a nearby tree.");
+	setEmotes("Feelings.Wave.Sounds.Sound1.Name", "AMBIENT_CAVE");
+	setEmotesDouble("Feelings.Wave.Sounds.Sound1.Volume", 2.0);
+	setEmotesDouble("Feelings.Wave.Sounds.Sound1.Pitch", 2.0); // not sure
+	setEmotes("Feelings.Wave.Sounds.Sound2.Name", "None");
+	setEmotesDouble("Feelings.Wave.Sounds.Sound2.Volume", 0.0);
+	setEmotesDouble("Feelings.Wave.Sounds.Sound2.Pitch", 0.0);
+	
+	setEmotesBoolean("Feelings.Stinky.Enable", true);
+	setEmotes("Feelings.Stinky.Msgs.Sender", "&7You carefully stalk &e&l%player%&r&7, &7&oHeh Heh.");
+	setEmotes("Feelings.Stinky.Msgs.Target", "&e&l%player% &r&7stalks you from a nearby tree.");
+	setEmotes("Feelings.Stinky.Msgs.Global", "&e&l%sender% &r&7stalks &6&l%target% &r&7from a nearby tree.");
+	setEmotes("Feelings.Stinky.Sounds.Sound1.Name", "AMBIENT_CAVE");
+	setEmotesDouble("Feelings.Stinky.Sounds.Sound1.Volume", 2.0);
+	setEmotesDouble("Feelings.Stinky.Sounds.Sound1.Pitch", 2.0); // not sure
+	setEmotes("Feelings.Stinky.Sounds.Sound2.Name", "None");
+	setEmotesDouble("Feelings.Stinky.Sounds.Sound2.Volume", 0.0);
+	setEmotesDouble("Feelings.Stinky.Sounds.Sound2.Pitch", 0.0);
+	
+	setEmotesBoolean("Feelings.Nudge.Enable", true);
+	setEmotes("Feelings.Nudge.Msgs.Sender", "&7You carefully stalk &e&l%player%&r&7, &7&oHeh Heh.");
+	setEmotes("Feelings.Nudge.Msgs.Target", "&e&l%player% &r&7stalks you from a nearby tree.");
+	setEmotes("Feelings.Nudge.Msgs.Global", "&e&l%sender% &r&7stalks &6&l%target% &r&7from a nearby tree.");
+	setEmotes("Feelings.Nudge.Sounds.Sound1.Name", "AMBIENT_CAVE");
+	setEmotesDouble("Feelings.Nudge.Sounds.Sound1.Volume", 2.0);
+	setEmotesDouble("Feelings.Nudge.Sounds.Sound1.Pitch", 2.0); // not sure
+	setEmotes("Feelings.Nudge.Sounds.Sound2.Name", "None");
+	setEmotesDouble("Feelings.Nudge.Sounds.Sound2.Volume", 0.0);
+	setEmotesDouble("Feelings.Nudge.Sounds.Sound2.Pitch", 0.0);
+	
+	setEmotesBoolean("Feelings.Facepalm.Enable", true);
+	setEmotes("Feelings.Facepalm.Msgs.Sender", "&7You carefully stalk &e&l%player%&r&7, &7&oHeh Heh.");
+	setEmotes("Feelings.Facepalm.Msgs.Target", "&e&l%player% &r&7stalks you from a nearby tree.");
+	setEmotes("Feelings.Facepalm.Msgs.Global", "&e&l%sender% &r&7stalks &6&l%target% &r&7from a nearby tree.");
+	setEmotes("Feelings.Facepalm.Sounds.Sound1.Name", "AMBIENT_CAVE");
+	setEmotesDouble("Feelings.Facepalm.Sounds.Sound1.Volume", 2.0);
+	setEmotesDouble("Feelings.Facepalm.Sounds.Sound1.Pitch", 2.0); // not sure
+	setEmotes("Feelings.Facepalm.Sounds.Sound2.Name", "None");
+	setEmotesDouble("Feelings.Facepalm.Sounds.Sound2.Volume", 0.0);
+	setEmotesDouble("Feelings.Facepalm.Sounds.Sound2.Pitch", 0.0);
+	
+	setEmotesBoolean("Feelings.Sus.Enable", true);
+	setEmotes("Feelings.Sus.Msgs.Sender", "&7You carefully stalk &e&l%player%&r&7, &7&oHeh Heh.");
+	setEmotes("Feelings.Sus.Msgs.Target", "&e&l%player% &r&7stalks you from a nearby tree.");
+	setEmotes("Feelings.Sus.Msgs.Global", "&e&l%sender% &r&7stalks &6&l%target% &r&7from a nearby tree.");
+	setEmotes("Feelings.Sus.Sounds.Sound1.Name", "AMBIENT_CAVE");
+	setEmotesDouble("Feelings.Sus.Sounds.Sound1.Volume", 2.0);
+	setEmotesDouble("Feelings.Sus.Sounds.Sound1.Pitch", 2.0); // not sure
+	setEmotes("Feelings.Sus.Sounds.Sound2.Name", "None");
+	setEmotesDouble("Feelings.Sus.Sounds.Sound2.Volume", 0.0);
+	setEmotesDouble("Feelings.Sus.Sounds.Sound2.Pitch", 0.0);
+	
+	setEmotesBoolean("Feelings.F.Enable", true);
+	setEmotes("Feelings.F.Msgs.Sender", "&7You carefully stalk &e&l%player%&r&7, &7&oHeh Heh.");
+	setEmotes("Feelings.F.Msgs.Target", "&e&l%player% &r&7stalks you from a nearby tree.");
+	setEmotes("Feelings.F.Msgs.Global", "&e&l%sender% &r&7stalks &6&l%target% &r&7from a nearby tree.");
+	setEmotes("Feelings.F.Sounds.Sound1.Name", "AMBIENT_CAVE");
+	setEmotesDouble("Feelings.F.Sounds.Sound1.Volume", 2.0);
+	setEmotesDouble("Feelings.F.Sounds.Sound1.Pitch", 2.0); // not sure
+	setEmotes("Feelings.F.Sounds.Sound2.Name", "None");
+	setEmotesDouble("Feelings.F.Sounds.Sound2.Volume", 0.0);
+	setEmotesDouble("Feelings.F.Sounds.Sound2.Pitch", 0.0);
+	
+	setEmotesBoolean("Feelings.Bow.Enable", true);
+	setEmotes("Feelings.Bow.Msgs.Sender", "&7You carefully stalk &e&l%player%&r&7, &7&oHeh Heh.");
+	setEmotes("Feelings.Bow.Msgs.Target", "&e&l%player% &r&7stalks you from a nearby tree.");
+	setEmotes("Feelings.Bow.Msgs.Global", "&e&l%sender% &r&7stalks &6&l%target% &r&7from a nearby tree.");
+	setEmotes("Feelings.Bow.Sounds.Sound1.Name", "AMBIENT_CAVE");
+	setEmotesDouble("Feelings.Bow.Sounds.Sound1.Volume", 2.0);
+	setEmotesDouble("Feelings.Bow.Sounds.Sound1.Pitch", 2.0); // not sure
+	setEmotes("Feelings.Bow.Sounds.Sound2.Name", "None");
+	setEmotesDouble("Feelings.Bow.Sounds.Sound2.Volume", 0.0);
+	setEmotesDouble("Feelings.Bow.Sounds.Sound2.Pitch", 0.0);
 
 	setEmotesVersion(4);
 	reloadFiles();
