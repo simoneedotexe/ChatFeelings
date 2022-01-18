@@ -45,7 +45,7 @@ public class Main extends JavaPlugin implements Listener {
     final static List <String> feelings = Arrays.asList(new String[] {
     		"hug", "slap", "poke", "highfive", "facepalm", "yell",
     		"bite", "snuggle", "shake", "stab", "kiss", "punch", "murder",
-    		"cry", "boi", "dab", "lick", "scorn", "pat", "stalk"
+    		"cry", "boi", "dab", "lick", "scorn", "pat", "stalk", "sus", "f", "wave", "stinky", "nudge", "facepalm", "bow"
     });
 
     private boolean hasess = false;
