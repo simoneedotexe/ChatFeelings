@@ -53,3 +53,16 @@ commands:
     description: Pat a players head for being good.
   stalk:
     description: Stalk a player carefully... carefully.
+  sus:
+    description: Call sus on someone.
+  f:
+    description: Pay your respects.
+  bow:
+    description: Bow to someone!
+  stinky:
+    description: Express to someone that they are stinky!
+  nudge:
+    description: Nudge someone for their attention!
+  wave:
+    description: Wave at someone!
+

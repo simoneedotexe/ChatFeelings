@@ -51,6 +51,18 @@ public class Particles {
 				dabParticle(p);
 			} else if(label.equalsIgnoreCase("lick")) {
 				lickParticle(p);
+            } else if(label.equalsIgnoreCase("wave")) {
+                waveParticle(p);
+            } else if(label.equalsIgnoreCase("stinky")) {
+                stinkyParticle(p);
+            } else if(label.equalsIgnoreCase("bow")) {
+                bowParticle(p);
+            } else if(label.equalsIgnoreCase("nudge")) {
+                nudgeParticle(p);
+            } else if(label.equalsIgnoreCase("sus")) {
+                susParticle(p);
+            } else if(label.equalsIgnoreCase("f")) {
+                fParticle(p);
 			} else if(label.equalsIgnoreCase("scorn")) {
 				//scornParticle(p);
 			} else if(label.equalsIgnoreCase("pat")) {

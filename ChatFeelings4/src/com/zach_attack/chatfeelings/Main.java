@@ -36,7 +36,6 @@ import com.zach_attack.chatfeelings.api.Placeholders;
 import com.zach_attack.chatfeelings.other.Updater;
 
 import litebans.api.Database;
-import me.leoko.advancedban.manager.PunishmentManager;
 
 public class Main extends JavaPlugin implements Listener {
 
@@ -50,7 +49,6 @@ public class Main extends JavaPlugin implements Listener {
 
     private boolean hasess = false;
     private boolean haslitebans = false;
-    private boolean hasadvancedban = false;
 
     private boolean usevanishcheck = false;
 
@@ -156,9 +154,6 @@ public class Main extends JavaPlugin implements Listener {
                                 f.delete();
                             } else if (banInt == 2) {
                                 debug("Deleted " + playername + "'s data file. They were banned! (LiteBans)");
-                                f.delete();
-                            } else if (banInt == 3) {
-                                debug("Deleted " + playername + "'s data file. They were banned! (AdvancedBan)");
                                 f.delete();
                             } else if (banInt == 4) {
                                 debug("Deleted " + playername + "'s data file. They were banned! (Vanilla)");
@@ -602,12 +597,6 @@ public class Main extends JavaPlugin implements Listener {
             haslitebans = true;
         }
 
-        if (this.getServer().getPluginManager().isPluginEnabled("AdvancedBan") &&
-            this.getServer().getPluginManager().getPlugin("AdvancedBan") != null) {
-            getLogger().info("Hooking into AdvancedBans...");
-            hasadvancedban = true;
-        }
-
         if (this.getServer().getPluginManager().isPluginEnabled("Essentials") &&
             this.getServer().getPluginManager().getPlugin("Essentials") != null) {
             hasess = true;
@@ -631,10 +620,6 @@ public class Main extends JavaPlugin implements Listener {
 
     private int isBanned(UUID uuid, String IPAdd) {
 
-        if (isABBanned(uuid)) {
-            return 3;
-        }
-
         if (isLiteBanBanned(uuid, IPAdd)) {
             return 2;
         }
@@ -651,9 +636,6 @@ public class Main extends JavaPlugin implements Listener {
     }
 
     private int isMuted(UUID uuid, String IPAdd) {
-        if (isABMuted(uuid)) {
-            return 3;
-        }
 
         if (isLiteBanMuted(uuid, IPAdd)) {
             return 2;
@@ -668,9 +650,6 @@ public class Main extends JavaPlugin implements Listener {
 
 
     // FOR API ---------------------------------
-    public boolean APIhasAB() {
-        return hasadvancedban;
-    }
     public boolean APIhasLB() {
         return haslitebans;
     }
@@ -766,23 +745,6 @@ public class Main extends JavaPlugin implements Listener {
         }
     }
 
-    private boolean isABMuted(UUID uuid) {
-        try {
-            if (hasadvancedban) {
-                if (PunishmentManager.get().isMuted(uuid.toString())) {
-                    return true;
-                }
-            }
-            return false;
-        } catch (Exception err) {
-            if (debug && !punishmentError) {
-            	punishmentError = true;
-            	debug("AdvancedBan isMuted Error:");
-                err.printStackTrace();
-            }
-            return false;
-        }
-    }
 
     private boolean isVanillaBanned(UUID uuid) {
         if (Bukkit.getOfflinePlayer(uuid).isBanned()) {
@@ -829,23 +791,6 @@ public class Main extends JavaPlugin implements Listener {
         }
     }
 
-    private boolean isABBanned(UUID uuid) {
-        try {
-            if (hasadvancedban) {						// Requires UUID as string.
-                if (PunishmentManager.get().isBanned(uuid.toString())) {
-                    return true;
-                }
-            }
-            return false;
-        } catch (Exception err) {
-        	if (debug && !punishmentError) {
-            	punishmentError = true;
-            	debug("AdvancedBan isBanned Error:");
-                err.printStackTrace();
-            }
-            return false;
-        }
-    }
 
     private boolean isVanished(Player player) {
         if (usevanishcheck) {
@@ -1133,9 +1078,6 @@ public class Main extends JavaPlugin implements Listener {
                 return true;
             }
             // We need a 60s global cooldown incase they use MySQL. Doing this command w/ MySQL can suck up LOTS of CPU.
-            if (haslitebans || hasadvancedban) {
-                lastmutelist = System.currentTimeMillis();
-            }
             Bukkit.getScheduler().runTaskAsynchronously(this, () -> {
                 Msgs.send(sender, "");
                 Msgs.send(sender, msg.getString("Mute-List-Header"));
@@ -1157,27 +1099,18 @@ public class Main extends JavaPlugin implements Listener {
                         if (setcache.contains("Muted") && setcache.contains("Username")) {
                             if (setcache.getBoolean("Muted")) {
                                 totalmuted++;
-                                if (muteInt == 3) {
-                                    Msgs.send(sender, msg.getString("Mute-List-Player").replace("%player%", (String) setcache.get("Username")) + " &c(AdvancedBan & CF)");
-                                } else if (muteInt == 2) {
+
+                                if (muteInt == 2) {
                                     Msgs.send(sender, msg.getString("Mute-List-Player").replace("%player%", (String) setcache.get("Username")) + " &c(LiteBans & CF)");
                                 } else if (muteInt == 1) {
                                     Msgs.send(sender, msg.getString("Mute-List-Player").replace("%player%", (String) setcache.get("Username")) + " &c(Essentials & CF)");
                                 } else {
                                     Msgs.send(sender, msg.getString("Mute-List-Player").replace("%player%", (String) setcache.get("Username")));
                                 }
-                            } else {
-                                if (muteInt == 3) {
-                                    totalmuted++;
-                                    Msgs.send(sender, msg.getString("Mute-List-Player").replace("%player%", (String) setcache.get("Username")) + " &c(AdvancedBan)");
-                                } else
+                            } else{
                                 if (muteInt == 2) {
                                     totalmuted++;
                                     Msgs.send(sender, msg.getString("Mute-List-Player").replace("%player%", (String) setcache.get("Username")) + " &c(LiteBans)");
-                                } else
-                                if (muteInt == 1) {
-                                    totalmuted++;
-                                    Msgs.send(sender, msg.getString("Mute-List-Player").replace("%player%", (String) setcache.get("Username")) + " &c(Essentials)");
                                 }
                             }
                         }
@@ -1269,9 +1202,6 @@ public class Main extends JavaPlugin implements Listener {
                 bass(sender);
                 Bukkit.getScheduler().runTaskAsynchronously(this, () -> {
                     final int muteInt = isMuted(puuid, IPAdd);
-                    if (muteInt == 3) {
-                        Msgs.sendPrefix(sender, msg.getString("Player-Muted-Via-AdvancedBan"));
-                    } else
                     if (muteInt == 2) {
                         Msgs.sendPrefix(sender, msg.getString("Player-Muted-Via-LiteBans"));
                     } else
@@ -1559,6 +1489,9 @@ public class Main extends JavaPlugin implements Listener {
                 Msgs.send(sender, "&8&l> &f&l/snuggle (player) &7 " + msg.getString(path + "Snuggle"));
                 Msgs.send(sender, "&8&l> &f&l/shake (player) &7 " + msg.getString(path + "Shake"));
                 Msgs.send(sender, "&8&l> &f&l/stab (player) &7 " + msg.getString(path + "Stab"));
+                Msgs.send(sender, "&8&l> &f&l/sus (player) &7 " + msg.getString(path + "Sus"));
+                Msgs.send(sender, "&8&l> &f&l/wave (player) &7 " + msg.getString(path + "Wave"));
+                Msgs.send(sender, "&8&l> &f&l/f (player) &7 " + msg.getString(path + "F"));
                 Msgs.send(sender, "&7To go to the 2nd page do &a/feelings 2");
                 pop(sender);
                 Msgs.send(sender, "");
@@ -1568,7 +1501,9 @@ public class Main extends JavaPlugin implements Listener {
                     msg.getString("Feelings-Help-Page").replace("%page%", "2").replace("%pagemax%", "2"));
                 Msgs.send(sender, "&8&l> &f&l/kiss (player) &7 " + msg.getString(path + "Kiss"));
                 Msgs.send(sender, "&8&l> &f&l/punch (player) &7 " + msg.getString(path + "Punch"));
-                Msgs.send(sender, "&8&l> &f&l/murder (player) &7 " + msg.getString(path + "Murder"));
+                Msgs.send(sender, "&8&l> &f&l/bow (player) &7 " + msg.getString(path + "Bow"));
+                Msgs.send(sender, "&8&l> &f&l/stinky (player) &7 " + msg.getString(path + "Bow"));
+                Msgs.send(sender, "&8&l> &f&l/nudge (player) &7 " + msg.getString(path + "Nudge"));
                 Msgs.send(sender, "&8&l> &f&l/boi (player) &7 " + msg.getString(path + "Boi"));
                 Msgs.send(sender, "&8&l> &f&l/cry (player) &7 " + msg.getString(path + "Cry"));
                 Msgs.send(sender, "&8&l> &f&l/dab (player) &7 " + msg.getString(path + "Dab"));
@@ -1700,9 +1635,6 @@ public class Main extends JavaPlugin implements Listener {
                     final int muteInt = isMuted(p.getUniqueId(), null);
 
                     if (muteInt != 0) {
-                        if (muteInt == 3) {
-                            debug("" + sender.getName() + " tried to use /" + cmdLabel + ", but is muted by AdvancedBan.");
-                        }
                         if (muteInt == 2) {
                             debug("" + sender.getName() + " tried to use /" + cmdLabel + ", but is muted by LiteBans.");
                         }

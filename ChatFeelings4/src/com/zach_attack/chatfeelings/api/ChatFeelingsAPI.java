@@ -122,10 +122,7 @@ public class ChatFeelingsAPI {
 	public static int getTotalFeelingsSent(UUID uuid) {
 		return plugin.APIgetTotalSent(uuid);
 	}
-	
-	public static boolean usingAdvancedBans() {
-		return plugin.APIhasAB();
-	}
+
 	
 	public static boolean usingLiteBans() {
 		return plugin.APIhasLB();
@@ -134,13 +131,7 @@ public class ChatFeelingsAPI {
 	public static boolean usingEssentials() {
 		return plugin.APIhasEss();
 	}
-	
-	public static boolean hookedToPunishments() {
-		if(plugin.APIhasAB() || plugin.APIhasEss() || plugin.APIhasLB()) {
-			return true;
-		}
-		return false;
-	}
+
 	
 	public static List<String> getFeelingsList() {
 		return plugin.APIgetFeelings();
